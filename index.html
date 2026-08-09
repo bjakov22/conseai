@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONSEAI — Consulting & Smart Engineering with AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#" class="nav__logo">
+        <span class="nav__logo-mark">C</span>ONSEAI
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#product">Product</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--red nav__cta">Get in Touch</a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <div class="hero__grid"></div>
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__identity">
+        <span class="hero__identity-name"><span class="hero__identity-mark">C</span>ONSEAI</span>
+        <span class="hero__identity-sub">Consulting and Smart Engineering with AI</span>
+      </div>
+      <div class="hero__badge">AI-Powered Business Transformation</div>
+      <h1 class="hero__headline">
+        Smart Consulting.<br />
+        <span class="hero__headline--accent">Intelligent Automation.</span><br />
+        Real Results.
+      </h1>
+      <p class="hero__sub">
+        CONSEAI helps small and mid-size companies modernise their operations through
+        strategic process consulting, AI-driven automation, and custom-built technology products.
+      </p>
+      <div class="hero__actions">
+        <a href="#services" class="btn btn--red btn--lg">Explore Services</a>
+        <a href="#product" class="btn btn--ghost btn--lg">See Our Product</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-num">3</span>
+          <span class="hero__stat-label">Core Service Lines</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">AI</span>
+          <span class="hero__stat-label">First Approach</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">SMB</span>
+          <span class="hero__stat-label">Focused Expertise</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── Tagline Band ── -->
+  <div class="band">
+    <div class="container band__inner">
+      <span>Process Design</span>
+      <span class="band__dot"></span>
+      <span>AI Automation</span>
+      <span class="band__dot"></span>
+      <span>Custom Software</span>
+      <span class="band__dot"></span>
+      <span>Strategic Consulting</span>
+      <span class="band__dot"></span>
+      <span>Smart Engineering</span>
+    </div>
+  </div>
+
+  <!-- ── Services ── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Three pillars of transformation</h2>
+        <p class="section-sub">
+          From process strategy through automation all the way to bespoke products — we cover the full spectrum
+          of business modernisation.
+        </p>
+      </div>
+      <div class="services__grid">
+
+        <div class="service-card service-card--featured">
+          <div class="service-card__num">01</div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+              <rect x="26" y="6" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+              <rect x="6" y="26" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M34 26v4m0 4v8M26 34h4m4 0h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Process Consulting</h3>
+          <p class="service-card__body">
+            We audit, design and implement structured operational processes for small and mid-size companies.
+            Whether you are scaling a startup or rationalising an established firm, we establish clear workflows,
+            accountability chains and KPIs that stick.
+          </p>
+          <ul class="service-card__list">
+            <li>Process mapping &amp; gap analysis</li>
+            <li>Strategy building with Hoshin Kanri &amp; RASIC</li>
+            <li>Operational playbooks</li>
+            <li>KPI frameworks &amp; dashboards</li>
+            <li>Change management coaching</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__num">02</div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M24 8V4M24 44v-4M8 24H4M44 24h-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M12.1 12.1l-2.83-2.83M38.73 38.73l-2.83-2.83M38.73 9.27l-2.83 2.83M12.1 35.9l-2.83 2.83" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">AI Automation</h3>
+          <p class="service-card__body">
+            We identify repetitive, rule-based and decision-heavy tasks across your organisation and automate them
+            with purpose-built AI agents, workflow integrations and smart tooling — reducing cost and eliminating
+            human error.
+          </p>
+          <ul class="service-card__list">
+            <li>Root cause analysis with Why-Why &amp; A3</li>
+            <li>Workflow &amp; task automation</li>
+            <li>AI agent development</li>
+            <li>Tool &amp; system integrations</li>
+            <li>Intelligent document processing</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__num">03</div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M16 10V6M32 10V6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M6 20h36" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="17" cy="30" r="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M23 28h10M23 32h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Custom Products</h3>
+          <p class="service-card__body">
+            Beyond consulting, we build proprietary software products that solve real industry problems at scale.
+            Our first product, Tragamo, is a next-generation AI-assisted travel planning platform designed to
+            transform how people discover and organise trips.
+          </p>
+          <ul class="service-card__list">
+            <li>End-to-end product development</li>
+            <li>Mobile &amp; web platforms</li>
+            <li>AI-enhanced user experiences</li>
+            <li>Scalable cloud architecture</li>
+          </ul>
+          <a href="#product" class="service-card__link">See Tragamo →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Product: Tragamo ── -->
+  <section class="product" id="product">
+    <div class="product__bg">
+      <div class="product__glow"></div>
+    </div>
+    <div class="container product__inner">
+      <div class="product__content">
+        <span class="section-label section-label--light">Flagship Product</span>
+        <h2 class="section-title section-title--light">
+          Introducing <span class="text-red">Tragamo</span>
+        </h2>
+        <p class="product__sub">
+          Tragamo is CONSEAI's custom-built travel platform that redefines trip planning for the modern explorer.
+          Powered by AI, it curates personalised itineraries, recommends accommodations, and surfaces hidden
+          points of interest — all within a seamless mobile-first experience.
+        </p>
+        <div class="product__features">
+          <div class="product__feature">
+            <div class="product__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+            </div>
+            <div>
+              <strong>Smart Itinerary Builder</strong>
+              <p>AI-curated day-by-day plans tailored to your pace and interests.</p>
+            </div>
+          </div>
+          <div class="product__feature">
+            <div class="product__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor"/></svg>
+            </div>
+            <div>
+              <strong>Accommodation Discovery</strong>
+              <p>Curated stays across regions, ranked by fit, price and proximity.</p>
+            </div>
+          </div>
+          <div class="product__feature">
+            <div class="product__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <strong>Points of Interest</strong>
+              <p>Surface authentic local experiences beyond mainstream tourist traps.</p>
+            </div>
+          </div>
+          <div class="product__feature">
+            <div class="product__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <strong>Mobile-First Design</strong>
+              <p>Built for real travellers on the move — iOS &amp; Android native apps.</p>
+            </div>
+          </div>
+        </div>
+        <div class="product__actions">
+          <a href="#contact" class="btn btn--red btn--lg">Request Early Access</a>
+          <a href="#contact" class="btn btn--ghost-light btn--lg">Partner With Us</a>
+        </div>
+      </div>
+      <div class="product__visual">
+        <div class="product__phone">
+          <div class="product__phone-screen">
+            <div class="product__screen-header">
+              <div class="product__screen-dot"></div>
+              <span>Tragamo</span>
+            </div>
+            <div class="product__screen-map">
+              <div class="product__map-pin product__map-pin--1"></div>
+              <div class="product__map-pin product__map-pin--2"></div>
+              <div class="product__map-pin product__map-pin--3"></div>
+              <div class="product__map-grid"></div>
+            </div>
+            <div class="product__screen-card">
+              <div class="product__card-thumb"></div>
+              <div class="product__card-info">
+                <div class="product__card-title">Dubrovnik Old Town</div>
+                <div class="product__card-sub">4 stops · 3h walk</div>
+              </div>
+            </div>
+            <div class="product__screen-card product__screen-card--2">
+              <div class="product__card-thumb product__card-thumb--2"></div>
+              <div class="product__card-info">
+                <div class="product__card-title">Plitvice Lakes</div>
+                <div class="product__card-sub">Full day · National Park</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product__phone-shadow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why CONSEAI ── -->
+  <section class="why">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why CONSEAI</span>
+        <h2 class="section-title">Built for businesses that move fast</h2>
+      </div>
+      <div class="why__grid">
+        <div class="why__card">
+          <div class="why__icon why__icon--blue">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4L4 10v12l12 6 12-6V10L16 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 10l12 6m0 0l12-6m-12 6v12" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h4>Holistic Approach</h4>
+          <p>Strategy, execution and tooling under one roof — no coordination gap between consultants and engineers.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__icon why__icon--red">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/><path d="M11 16l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>SMB-First Mindset</h4>
+          <p>Pragmatic solutions sized for your reality — not enterprise frameworks that overwhelm lean teams.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__icon why__icon--blue">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M6 24l8-8 4 4 8-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Measurable Outcomes</h4>
+          <p>Every engagement is anchored to metrics — time saved, errors reduced, revenue unlocked.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__icon why__icon--red">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><rect x="18" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><rect x="4" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><rect x="18" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h4>Modular Engagement</h4>
+          <p>Start with a process audit, add automation later, commission a product — scale involvement as you grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="about" id="about">
+    <div class="container about__inner">
+      <div class="about__visual">
+        <div class="about__card about__card--main">
+          <div class="about__card-label">Our Mission</div>
+          <p>Make intelligent technology accessible to every ambitious business — not just the Fortune 500.</p>
+        </div>
+        <div class="about__card about__card--accent">
+          <div class="about__card-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+          </div>
+          <strong>Founded 2026</strong>
+          <p>Novi Sad, Serbia</p>
+        </div>
+        <div class="about__card about__card--stat">
+          <span class="about__card-big">AI</span>
+          <span>at the core of everything we build</span>
+        </div>
+      </div>
+      <div class="about__content">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Consulting meets engineering meets AI</h2>
+        <p class="about__body">
+          CONSEAI was founded on a simple conviction: that the gap between business strategy and technology
+          execution is where most companies lose. We close that gap.
+        </p>
+        <p class="about__body">
+          Our team combines management consulting experience with deep software engineering and AI research
+          backgrounds. This lets us design processes that are not just logical on a whiteboard — they are also
+          implementable, automatable and continuously improvable.
+        </p>
+        <p class="about__body">
+          We work primarily with small and mid-size businesses in Central and Eastern Europe that are ambitious
+          enough to know they need better operations but lean enough that they cannot afford to get it wrong.
+        </p>
+        <div class="about__pillars">
+          <div class="about__pillar">
+            <div class="about__pillar-line about__pillar-line--blue"></div>
+            <span>Strategy</span>
+          </div>
+          <div class="about__pillar">
+            <div class="about__pillar-line about__pillar-line--red"></div>
+            <span>Engineering</span>
+          </div>
+          <div class="about__pillar">
+            <div class="about__pillar-line about__pillar-line--blue"></div>
+            <span>AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ── -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg">
+      <div class="cta-banner__glow"></div>
+    </div>
+    <div class="container cta-banner__inner">
+      <h2 class="cta-banner__title">Ready to modernise your business?</h2>
+      <p class="cta-banner__sub">
+        Let's start with a 30-minute discovery call — no commitment, just clarity on what's possible.
+      </p>
+      <a href="#contact" class="btn btn--white btn--lg">Schedule a Call</a>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's talk about your business</h2>
+        <p class="contact__sub">
+          Whether you have a specific challenge in mind or just want to explore what AI-powered consulting
+          could mean for your company — we'd love to hear from you.
+        </p>
+        <div class="contact__details">
+          <div class="contact__detail">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
+            <span>hello@conseai.com</span>
+          </div>
+          <div class="contact__detail">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+            <span>Novi Sad, Serbia</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact__form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Your company name" />
+        </div>
+        <div class="form-group">
+          <label for="interest">Area of Interest</label>
+          <select id="interest" name="interest">
+            <option value="">Select a service…</option>
+            <option value="consulting">Process Consulting</option>
+            <option value="automation">AI Automation</option>
+            <option value="tragamo">Tragamo / Travel Platform</option>
+            <option value="other">Other / Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us about your challenge or question…"></textarea>
+        </div>
+        <button type="submit" class="btn btn--red btn--lg btn--full">Send Message</button>
+        <p class="form-note">We respond within 1 business day.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">
+          <span class="nav__logo-name"><span class="nav__logo-mark">C</span>ONSEAI</span>
+          <span class="nav__logo-sub">Consulting &amp; Smart Engineering with AI</span>
+        </a>
+        <p class="footer__copy">© 2026 CONSEAI. All rights reserved.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h5>Services</h5>
+          <a href="#services">Process Consulting</a>
+          <a href="#services">AI Automation</a>
+          <a href="#services">Custom Products</a>
+        </div>
+        <div class="footer__col">
+          <h5>Company</h5>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+          <a href="#product">Tragamo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
