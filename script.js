@@ -1,10 +1,47 @@
-// Sticky nav shadow on scroll
+// ── Language switcher ──
+let currentLang = 'en';
+
+function applyLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  // Swap textContent for elements with data-en / data-sr
+  document.querySelectorAll('[data-en][data-sr]').forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+
+  // Swap placeholder for inputs/textareas
+  document.querySelectorAll('[data-ph-en][data-ph-sr]').forEach(el => {
+    el.placeholder = lang === 'sr' ? el.dataset.phSr : el.dataset.phEn;
+  });
+
+  // Swap <option> text inside <select>
+  document.querySelectorAll('select option[data-en][data-sr]').forEach(opt => {
+    opt.textContent = opt.dataset[lang];
+  });
+
+  // Update active button state
+  document.querySelectorAll('.nav__lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update page title
+  document.title = lang === 'sr'
+    ? 'CONSEAI — Savetovanje i Pametno Inženjerstvo sa AI'
+    : 'CONSEAI — Consulting & Smart Engineering with AI';
+}
+
+document.querySelectorAll('.nav__lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+// ── Sticky nav shadow on scroll ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-// Mobile burger menu
+// ── Mobile burger menu ──
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 
@@ -22,12 +59,12 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Contact form — basic client-side feedback (no backend yet)
+// ── Contact form ──
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');
   const original = btn.textContent;
-  btn.textContent = 'Message Sent ✓';
+  btn.textContent = currentLang === 'sr' ? 'Poruka poslata ✓' : 'Message Sent ✓';
   btn.style.background = '#16A34A';
   btn.disabled = true;
   setTimeout(() => {
@@ -38,7 +75,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   }, 4000);
 });
 
-// Fade-in on scroll using IntersectionObserver
+// ── Fade-in on scroll ──
 const fadeEls = document.querySelectorAll(
   '.service-card, .why__card, .product__feature, .hero__stats, .about__card'
 );
