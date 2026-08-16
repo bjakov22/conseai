@@ -1,6 +1,12 @@
 /* ── Reset & Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+/* Minimum touch target size for iOS/Android */
+button, a, select, input, textarea { touch-action: manipulation; }
+.btn { min-height: 44px; }
+.nav__lang-btn { min-height: 36px; min-width: 44px; }
+/* Safe area inset for notched phones */
+.nav__inner { padding-left: max(24px, env(safe-area-inset-left)); padding-right: max(24px, env(safe-area-inset-right)); }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #0A0E1A;
@@ -68,10 +74,10 @@ ul { list-style: none; }
 .btn--lg { padding: 15px 32px; font-size: 1rem; }
 .btn--full { width: 100%; justify-content: center; }
 .btn--red {
-  background: var(--red);
+  background: var(--blue-light);
   color: var(--white);
 }
-.btn--red:hover { background: var(--red-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(220,38,38,.35); }
+.btn--red:hover { background: var(--blue); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,99,235,.35); }
 .btn--ghost {
   background: transparent;
   color: var(--white);
@@ -174,13 +180,6 @@ ul { list-style: none; }
   align-items: center;
   gap: 6px;
   margin-left: auto;
-}
-.nav__lang-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(255,255,255,.5);
-  margin-right: 4px;
-  letter-spacing: 0.02em;
 }
 .nav__lang-btn {
   display: inline-flex;
@@ -1298,18 +1297,27 @@ ul { list-style: none; }
 }
 .footer__col a:hover { color: var(--white); }
 
-/* ── Responsive ── */
+/* ── Responsive: tablet ── */
 @media (max-width: 1024px) {
-  .services__grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
+  .services__grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
   .why__grid { grid-template-columns: repeat(2, 1fr); }
-  .product__inner { grid-template-columns: 1fr; }
-  .product__visual { order: -1; }
-  .about__inner { grid-template-columns: 1fr; }
+  .product__inner { grid-template-columns: 1fr !important; gap: 40px; }
+  .product__content { order: 1; }
+  .product__visual { order: 2; }
+  .about__inner { grid-template-columns: 1fr; gap: 40px; }
   .about__visual { height: 320px; order: -1; }
-  .contact__inner { grid-template-columns: 1fr; }
+  .contact__inner { grid-template-columns: 1fr; gap: 40px; }
 }
 
+/* ── Responsive: mobile ── */
 @media (max-width: 768px) {
+  /* Container */
+  .container { padding: 0 16px; }
+
+  /* Nav */
+  .nav__inner { height: 60px; gap: 12px; }
+  .nav__logo-name { font-size: 1.05rem; }
+  .nav__logo-sub { font-size: 0.52rem; }
   .nav__links { display: none; }
   .nav__links.open {
     display: flex;
@@ -1323,17 +1331,86 @@ ul { list-style: none; }
     font-size: 1.4rem;
     z-index: 99;
   }
+  .nav__lang { margin-left: auto; }
+  .nav__lang-btn { font-size: 0.7rem; padding: 3px 6px; }
   .nav__cta { display: none; }
   .nav__burger { display: flex; }
-  .hero__actions { flex-direction: column; }
-  .hero__stats { gap: 16px; }
+
+  /* Hero */
+  .hero__inner { padding-top: 90px; padding-bottom: 48px; }
+  .hero__identity { margin-bottom: 20px; }
+  .hero__identity-name { font-size: 1.9rem; }
+  .hero__identity-sub { font-size: 0.72rem; }
+  .hero__badge { font-size: 0.65rem; padding: 5px 10px; }
+  .hero__headline { font-size: 2rem; margin-bottom: 16px; }
+  .hero__sub { font-size: 0.95rem; margin-bottom: 28px; }
+  .hero__actions { flex-direction: column; gap: 12px; margin-bottom: 40px; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero__stats { gap: 20px; flex-wrap: wrap; }
   .hero__stat-divider { display: none; }
-  .why__grid { grid-template-columns: 1fr; }
-  .footer__inner { flex-direction: column; }
-  .footer__links { flex-direction: column; gap: 32px; }
+  .hero__scroll { display: none; }
+
+  /* Band */
+  .band__inner { gap: 16px; font-size: 0.72rem; }
+  .band__dot { display: none; }
+
+  /* Services */
+  .services { padding: 60px 0; }
+  .services__grid { max-width: 100%; }
+  .service-card { padding: 28px 22px; }
+  .section-header { margin-bottom: 36px; }
+
+  /* Product */
+  .product { padding: 60px 0; }
+  .product__sub { font-size: 0.95rem; }
+  .product__features { gap: 18px; margin-bottom: 28px; }
+  .product__actions { flex-direction: column; gap: 12px; }
+  .product__actions .btn { width: 100%; justify-content: center; }
+  /* App mockup — stack listing and map vertically */
+  .app-bottom { grid-template-columns: 1fr; height: auto; }
+  .app-map { height: 110px; }
+
+  /* Why */
+  .why { padding: 60px 0; }
+  .why__grid { grid-template-columns: 1fr; gap: 14px; }
+  .why__card { padding: 24px 20px; }
+
+  /* About */
+  .about { padding: 60px 0; }
+  .about__visual {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 14px;
+    order: -1;
+  }
+  .about__card { position: static !important; width: 100% !important; }
+  .about__card--accent { align-self: flex-start; width: auto !important; }
+  .about__card--stat { align-self: flex-start; width: auto !important; }
+  .about__pillars { flex-wrap: wrap; gap: 16px; }
+
+  /* CTA banner */
+  .cta-banner { padding: 56px 0; }
+  .cta-banner__title { font-size: 1.6rem; }
+  .cta-banner__sub { font-size: 0.95rem; }
+
+  /* Contact */
+  .contact { padding: 60px 0; }
+  .contact__form { padding: 24px 18px; border-radius: var(--radius-lg); }
   .form-row { grid-template-columns: 1fr; }
-  .about__card--main { width: 100%; position: static; margin-bottom: 16px; }
-  .about__card--accent { position: static; width: auto; }
-  .about__card--stat { position: static; width: auto; }
-  .about__visual { display: flex; flex-direction: column; height: auto; gap: 16px; }
+
+  /* Footer */
+  .footer { padding: 44px 0 24px; }
+  .footer__inner { flex-direction: column; gap: 32px; }
+  .footer__links { flex-direction: column; gap: 24px; }
+}
+
+/* ── Responsive: small phones (≤ 390px) ── */
+@media (max-width: 390px) {
+  .hero__headline { font-size: 1.75rem; }
+  .hero__identity-name { font-size: 1.6rem; }
+  .service-card { padding: 22px 18px; }
+  .contact__form { padding: 20px 14px; }
+  .app-cat-card { width: 78px; }
+  .nav__lang-btn { font-size: 0.65rem; padding: 2px 5px; }
 }
