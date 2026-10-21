@@ -1592,17 +1592,17 @@ ul { list-style: none; }
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;   /* explicit — inset alone can misbehave inside a fixed parent on Android */
+    top: 0; left: 0; right: 0; bottom: 0;
     width: 100%;
     min-height: 100vh;
-    min-height: 100dvh;                       /* dynamic viewport height on modern Android Chrome */
+    min-height: 100dvh;
     background: var(--navy);
-    justify-content: center;
+    justify-content: flex-start;              /* flex-start = items stack downward; center caused dropdown to overflow upward */
     align-items: center;
-    gap: 28px;
+    gap: 20px;
     font-size: 1.4rem;
     z-index: 99;
-    padding: 72px 24px 32px;                  /* top pad keeps items below the visible nav bar */
+    padding: 80px 24px 40px;                  /* 80px top clears the 60px nav bar + breathing room */
     overflow-y: auto;
     box-sizing: border-box;
   }
@@ -1618,6 +1618,18 @@ ul { list-style: none; }
     display: block;
     text-align: center;
     width: auto;
+  }
+  /* Mobile-only "Get in Touch" CTA at the bottom of the overlay (hidden on desktop) */
+  .nav__mobile-cta { display: none; }
+  .nav__links.open .nav__mobile-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  .nav__links.open .nav__mobile-cta .btn {
+    font-size: 1rem;
+    padding: 12px 36px;
+    min-width: 180px;
   }
   /* Logo, lang switcher, burger must sit above the overlay (z-index: 99) */
   .nav__logo { position: relative; z-index: 102; }
