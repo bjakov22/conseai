@@ -7,8 +7,18 @@ function applyLang(lang) {
   document.documentElement.lang = lang;
 
   // Swap textContent for elements with data-en / data-sr
+  // For elements that have child elements (e.g. nav trigger with arrow, dropdown items with number spans),
+  // update only direct text nodes to avoid destroying the children.
   document.querySelectorAll('[data-en][data-sr]').forEach(el => {
-    el.textContent = el.dataset[lang];
+    if (el.children.length === 0) {
+      el.textContent = el.dataset[lang];
+    } else {
+      Array.from(el.childNodes).forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+          node.textContent = ' ' + el.dataset[lang];
+        }
+      });
+    }
   });
 
   // Swap placeholder for inputs/textareas
@@ -85,21 +95,36 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ── Contact form ──
-document.getElementById('contactForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = currentLang === 'sr' ? 'Poruka poslata ✓' : 'Message Sent ✓';
-  btn.style.background = '#16A34A';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = original;
-    btn.style.background = '';
-    btn.disabled = false;
-    e.target.reset();
-  }, 4000);
+// Dropdown item navigation — explicit handler guarantees navigation on all browsers
+document.querySelectorAll('.nav__dropdown-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    const href = item.getAttribute('href');
+    if (href) {
+      document.querySelectorAll('.nav__links li.open').forEach(el => el.classList.remove('open'));
+      window.location.href = href;
+    }
+  });
 });
+
+// ── Contact form ──
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = currentLang === 'sr' ? 'Poruka poslata ✓' : 'Message Sent ✓';
+    btn.style.background = '#16A34A';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  });
+}
 
 // ── Fade-in on scroll ──
 const fadeEls = document.querySelectorAll(
