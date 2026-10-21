@@ -1565,6 +1565,9 @@ ul { list-style: none; }
 .footer__col a:hover { color: var(--white); }
 
 /* ── Responsive: tablet ── */
+/* Mobile-only CTA lives inside the overlay; hidden everywhere else */
+.nav__mobile-cta { display: none; }
+
 @media (max-width: 1024px) {
   .services__grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
   .industrial__layout { grid-template-columns: 1fr; gap: 40px; }
@@ -1576,6 +1579,8 @@ ul { list-style: none; }
   .about__inner { grid-template-columns: 1fr; gap: 40px; }
   .about__visual { height: 320px; order: -1; }
   .contact__inner { grid-template-columns: 1fr; gap: 40px; }
+  /* Hide the desktop CTA on medium screens (large Android phones in landscape, small tablets) */
+  .nav__cta { display: none; }
 }
 
 /* ── Responsive: mobile ── */
@@ -1619,8 +1624,7 @@ ul { list-style: none; }
     text-align: center;
     width: auto;
   }
-  /* Mobile-only "Get in Touch" CTA at the bottom of the overlay (hidden on desktop) */
-  .nav__mobile-cta { display: none; }
+  /* Mobile-only "Get in Touch" CTA — shown inside the open overlay */
   .nav__links.open .nav__mobile-cta {
     display: flex;
     justify-content: center;
