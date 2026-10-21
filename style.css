@@ -1592,18 +1592,37 @@ ul { list-style: none; }
     display: flex;
     flex-direction: column;
     position: fixed;
-    inset: 0;
+    top: 0; left: 0; right: 0; bottom: 0;   /* explicit — inset alone can misbehave inside a fixed parent on Android */
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;                       /* dynamic viewport height on modern Android Chrome */
     background: var(--navy);
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
     font-size: 1.4rem;
     z-index: 99;
+    padding: 72px 24px 32px;                  /* top pad keeps items below the visible nav bar */
+    overflow-y: auto;
+    box-sizing: border-box;
   }
-  .nav__lang { margin-left: auto; }
-  .nav__lang-btn { font-size: 0.7rem; padding: 3px 6px; }
-  .nav__cta { display: none; }
-  .nav__burger { display: flex; }
+  /* Each menu item row: centered, full-width so text doesn't left-align on Android */
+  .nav__links.open > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  .nav__links.open > li > a {
+    display: block;
+    text-align: center;
+    width: auto;
+  }
+  /* Logo, lang switcher, burger must sit above the overlay (z-index: 99) */
+  .nav__logo { position: relative; z-index: 102; }
+  .nav__lang  { margin-left: auto; position: relative; z-index: 102; }
+  .nav__burger { display: flex; position: relative; z-index: 102; }
 
   /* Hero */
   .hero__inner { padding-top: 90px; padding-bottom: 48px; }
@@ -1647,7 +1666,8 @@ ul { list-style: none; }
     padding: 4px;
     box-shadow: none;
     min-width: unset;
-    width: 240px;
+    width: min(280px, 90vw);   /* responsive width on small screens */
+    align-self: center;        /* center within the flex-column <li> */
   }
   .nav__dropdown::before { display: none; }
   .nav__links li.open .nav__dropdown { opacity: 1; pointer-events: auto; max-height: 300px; }
