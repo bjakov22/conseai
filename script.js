@@ -3,6 +3,7 @@ let currentLang = 'en';
 
 function applyLang(lang) {
   currentLang = lang;
+  try { localStorage.setItem('lang', lang); } catch {}
   document.documentElement.lang = lang;
 
   // Swap textContent for elements with data-en / data-sr
@@ -35,6 +36,10 @@ document.querySelectorAll('.nav__lang-btn').forEach(btn => {
   btn.addEventListener('click', () => applyLang(btn.dataset.lang));
 });
 
+// Restore saved language preference across pages
+const savedLang = (() => { try { return localStorage.getItem('lang') || 'en'; } catch { return 'en'; } })();
+if (savedLang !== 'en') applyLang(savedLang);
+
 // ── Sticky nav shadow on scroll ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -53,10 +58,31 @@ burger.addEventListener('click', () => {
 });
 
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    document.body.style.overflow = '';
+  if (!link.classList.contains('nav__dropdown-trigger')) {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+
+// Dropdown toggle — click on all screen sizes
+document.querySelectorAll('.nav__dropdown-trigger').forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    const li = trigger.closest('li');
+    const isOpen = li.classList.contains('open');
+    // Close all open dropdowns first
+    document.querySelectorAll('.nav__links li.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) li.classList.add('open');
   });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav__links li')) {
+    document.querySelectorAll('.nav__links li.open').forEach(el => el.classList.remove('open'));
+  }
 });
 
 // ── Contact form ──

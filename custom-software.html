@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Custom Software & Products — CONSEAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Pillar hero (blue accent) ── */
+    .pillar-hero {
+      background: #0A0E1A;
+      padding: 120px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 700px 350px at 70% 50%, rgba(37,99,235,.1) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(37,99,235,.025) 60px, rgba(37,99,235,.025) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(37,99,235,.025) 60px, rgba(37,99,235,.025) 61px);
+    }
+    .pillar-hero__inner { position: relative; }
+    .pillar-hero__breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,.45);
+    }
+    .pillar-hero__breadcrumb a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
+    .pillar-hero__breadcrumb a:hover { color: #60A5FA; }
+    .pillar-hero__breadcrumb-sep { color: rgba(255,255,255,.2); }
+    .pillar-hero__breadcrumb-current { color: #60A5FA; }
+    .pillar-hero__label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #60A5FA;
+      background: rgba(37,99,235,.12);
+      border: 1px solid rgba(37,99,235,.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .pillar-hero__title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin: 0 0 20px;
+    }
+    .pillar-hero__title em { font-style: normal; color: #60A5FA; }
+    .pillar-hero__sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.6);
+      max-width: 640px;
+      line-height: 1.75;
+      margin: 0 0 36px;
+    }
+    .pillar-hero__stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .pillar-hero__stat { display: flex; flex-direction: column; gap: 4px; }
+    .pillar-hero__stat-num {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #60A5FA;
+      line-height: 1;
+    }
+    .pillar-hero__stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.45);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* ── Custom software capabilities section ── */
+    .sw-capabilities {
+      background: #0D1117;
+      padding: 80px 0;
+      position: relative;
+    }
+    .sw-capabilities::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(37,99,235,.35), transparent);
+    }
+    .sw-capabilities__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .sw-cap-card {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      border-top: 3px solid #2563EB;
+      border-radius: 12px;
+      padding: 32px 28px;
+      transition: background .2s;
+    }
+    .sw-cap-card:hover { background: rgba(255,255,255,.04); }
+    .sw-cap-card__icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(37,99,235,.12);
+      border: 1px solid rgba(37,99,235,.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60A5FA;
+      margin-bottom: 20px;
+    }
+    .sw-cap-card__icon svg { width: 24px; height: 24px; }
+    .sw-cap-card__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 10px;
+    }
+    .sw-cap-card__desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .sw-cap-card__list {
+      list-style: none;
+      margin: 0 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .sw-cap-card__list li {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,.6);
+      padding-left: 16px;
+      position: relative;
+    }
+    .sw-cap-card__list li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: #2563EB;
+      font-weight: 700;
+    }
+    .sw-cap-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .sw-cap-card__tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 3px 9px;
+      background: rgba(37,99,235,.1);
+      color: rgba(96,165,250,.85);
+      border: 1px solid rgba(37,99,235,.2);
+      border-radius: 4px;
+    }
+
+    /* ── Products section ── */
+    .sw-products {
+      background: #0A0E1A;
+      padding: 80px 0 96px;
+      position: relative;
+    }
+    .sw-products::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(37,99,235,.3), transparent);
+    }
+
+    /* ── Motorium teaser card ── */
+    .motorium-card {
+      margin-top: 48px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .motorium-card__icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .motorium-card__body { flex: 1; }
+    .motorium-card__title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 6px;
+    }
+    .motorium-card__sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .motorium-card__badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      background: rgba(245,158,11,.1);
+      color: #F59E0B;
+      border: 1px solid rgba(245,158,11,.2);
+      border-radius: 999px;
+      letter-spacing: .05em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .pillar-hero { padding: 100px 0 48px; }
+      .pillar-hero__stats { gap: 24px; }
+      .sw-capabilities__grid { grid-template-columns: 1fr; }
+      .motorium-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+    @media (max-width: 390px) {
+      .pillar-hero__title { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-name"><span class="nav__logo-mark">C</span>ONSEAI</span>
+        <span class="nav__logo-sub" data-en="Consulting and Smart Engineering with AI" data-sr="Savetovanje i Pametno Inženjerstvo sa AI">Consulting and Smart Engineering with AI</span>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li>
+          <a href="index.html#services" class="nav__dropdown-trigger" data-en="Services" data-sr="Usluge">
+            Services <span class="nav__dropdown-arrow" aria-hidden="true">▾</span>
+          </a>
+          <div class="nav__dropdown">
+            <a href="process-consulting.html" class="nav__dropdown-item" data-en="Process Consulting" data-sr="Procesno Savetovanje"><span class="nav__dropdown-num">01</span> Process Consulting</a>
+            <a href="index.html#services" class="nav__dropdown-item" data-en="AI Automation" data-sr="AI Automatizacija"><span class="nav__dropdown-num">02</span> AI Automation</a>
+            <a href="custom-software.html" class="nav__dropdown-item nav__dropdown-item--highlight" data-en="Custom Software &amp; Products" data-sr="Prilagođeni Softver i Proizvodi"><span class="nav__dropdown-num">03</span> Custom Software &amp; Products</a>
+            <div class="nav__dropdown-sep"></div>
+            <a href="industrial.html" class="nav__dropdown-item" data-en="Industrial Automation &amp; Electrical Eng." data-sr="Industrijska Automatizacija i Elektrotehnika"><span class="nav__dropdown-num">04</span> Industrial Automation &amp; Electrical Eng.</a>
+          </div>
+        </li>
+        <li><a href="index.html#product" data-en="Product" data-sr="Proizvod">Product</a></li>
+        <li><a href="index.html#team" data-en="Team" data-sr="Tim">Team</a></li>
+        <li><a href="index.html#about" data-en="About" data-sr="O nama">About</a></li>
+        <li><a href="index.html#contact" data-en="Contact" data-sr="Kontakt">Contact</a></li>
+      </ul>
+      <div class="nav__lang">
+        <button class="nav__lang-btn active" data-lang="en" aria-label="Switch to English">
+          <span class="nav__flag">🇬🇧</span> EN
+        </button>
+        <span class="nav__lang-sep">|</span>
+        <button class="nav__lang-btn" data-lang="sr" aria-label="Prebaci na srpski">
+          <span class="nav__flag">🇷🇸</span> SR
+        </button>
+      </div>
+      <a href="index.html#contact" class="btn btn--red nav__cta" data-en="Get in Touch" data-sr="Kontaktirajte nas">Get in Touch</a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ── -->
+  <section class="pillar-hero">
+    <div class="pillar-hero__bg"></div>
+    <div class="container pillar-hero__inner">
+      <div class="pillar-hero__breadcrumb">
+        <a href="index.html" data-en="Home" data-sr="Početna">Home</a>
+        <span class="pillar-hero__breadcrumb-sep">›</span>
+        <a href="index.html#services" data-en="Services" data-sr="Usluge">Services</a>
+        <span class="pillar-hero__breadcrumb-sep">›</span>
+        <span class="pillar-hero__breadcrumb-current" data-en="Custom Software &amp; Products" data-sr="Prilagođeni Softver i Proizvodi">Custom Software &amp; Products</span>
+      </div>
+      <div class="pillar-hero__label" data-en="Transformation Pillar 03" data-sr="Stub Transformacije 03">Transformation Pillar 03</div>
+      <h1 class="pillar-hero__title">
+        <em data-en="Custom Software" data-sr="Prilagođeni Softver">Custom Software</em><br/>
+        <span data-en="&amp; Products" data-sr="i Proizvodi">&amp; Products</span>
+      </h1>
+      <p class="pillar-hero__sub" data-en="We build software in two modes — our own proprietary products solving industry-wide problems, and bespoke development tailored to each client's unique needs. From safety-critical automotive embedded systems to modern web platforms." data-sr="Gradimo softver na dva načina — naše vlasničke proizvode koji rešavaju industrijske probleme, i prilagođeni razvoj skrojen prema potrebama svakog klijenta. Od bezbednosno-kritičnih automobilskih embedded sistema do modernih web platformi.">
+        We build software in two modes — our own proprietary products solving industry-wide problems,
+        and bespoke development tailored to each client's unique needs. From safety-critical automotive
+        embedded systems to modern web platforms.
+      </p>
+      <div class="pillar-hero__stats">
+        <div class="pillar-hero__stat">
+          <span class="pillar-hero__stat-num" style="font-size:1.35rem;" data-en="5+ Years" data-sr="5+ Godina">5+ Years</span>
+          <span class="pillar-hero__stat-label" data-en="Automotive Embedded" data-sr="Automotive Embedded">Automotive Embedded</span>
+        </div>
+        <div class="pillar-hero__stat">
+          <span class="pillar-hero__stat-num" style="font-size:1rem; line-height:1.5;">.NET · Angular · C#</span>
+          <span class="pillar-hero__stat-label" data-en="Web Stack" data-sr="Web Stek">Web Stack</span>
+        </div>
+        <div class="pillar-hero__stat">
+          <span class="pillar-hero__stat-num">2</span>
+          <span class="pillar-hero__stat-label" data-en="Own Products" data-sr="Vlastiti Proizvodi">Own Products</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Custom Software Capabilities ── -->
+  <section class="sw-capabilities">
+    <div class="container">
+      <div class="section-header" style="text-align:left; margin-bottom:0;">
+        <span class="section-label section-label--light" data-en="Client Software Development" data-sr="SW Razvoj za Klijente">Client Software Development</span>
+        <h2 class="section-title section-title--light" data-en="What we build for you" data-sr="Šta gradimo za vas">What we build for you</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.55); max-width:600px;" data-en="Deep domain expertise across two core development tracks — each backed by real delivery experience in demanding industries." data-sr="Duboka stručnost u dve osnovne razvojne oblasti — svaka potkrepljena iskustvom isporuke u zahtevnim industrijama.">
+          Deep domain expertise across two core development tracks — each backed by real delivery
+          experience in demanding industries.
+        </p>
+      </div>
+
+      <div class="sw-capabilities__grid">
+
+        <!-- Automotive Embedded -->
+        <div class="sw-cap-card">
+          <div class="sw-cap-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 11h2v2H6zM10 11h2v2h-2zM14 11h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 7V5M17 7V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="sw-cap-card__title" data-en="Automotive Embedded Development" data-sr="Razvoj Automotive Embedded Sistema">Automotive Embedded Development</h3>
+          <p class="sw-cap-card__desc" data-en="Over 5 years of hands-on experience delivering safety-critical automotive software products — spanning the full lifecycle from concept and system engineering through development, testing and project management." data-sr="Više od 5 godina iskustva u isporuci bezbednosno-kritičnih automotive softverskih proizvoda — od koncepta i sistemskog inženjerstva kroz razvoj, testiranje i projektni menadžment.">
+            Over 5 years of hands-on experience delivering safety-critical automotive software products —
+            spanning the full lifecycle from concept and system engineering through development, testing
+            and project management.
+          </p>
+          <ul class="sw-cap-card__list">
+            <li data-en="Software Development" data-sr="Razvoj Softvera">Software Development</li>
+            <li data-en="System Engineering" data-sr="Sistemsko Inženjerstvo">System Engineering</li>
+            <li data-en="System Test Engineering" data-sr="Sistemsko Testno Inženjerstvo">System Test Engineering</li>
+            <li data-en="Project Management" data-sr="Projektni Menadžment">Project Management</li>
+          </ul>
+          <div class="sw-cap-card__tags">
+            <span class="sw-cap-card__tag">ASPICE</span>
+            <span class="sw-cap-card__tag">ISO 26262</span>
+            <span class="sw-cap-card__tag">Cybersecurity</span>
+            <span class="sw-cap-card__tag">C / C++</span>
+            <span class="sw-cap-card__tag">Embedded Linux</span>
+            <span class="sw-cap-card__tag">AUTOSAR</span>
+          </div>
+        </div>
+
+        <!-- Web Application Development -->
+        <div class="sw-cap-card">
+          <div class="sw-cap-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18" stroke="currentColor" stroke-width="2"/><path d="M9 21V9" stroke="currentColor" stroke-width="2"/><path d="M13 13h5M13 17h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="sw-cap-card__title" data-en="Web Application Development" data-sr="Razvoj Web Aplikacija">Web Application Development</h3>
+          <p class="sw-cap-card__desc" data-en="Full-stack web application development with modern, enterprise-grade technologies. We design and build scalable, maintainable systems — from clean API design through data layer to polished front-end interfaces." data-sr="Full-stack razvoj web aplikacija sa modernim, enterprise tehnologijama. Projektujemo i gradimo skalabilne, održive sisteme — od čistog API dizajna kroz sloj podataka do uglađenih front-end interfejsa.">
+            Full-stack web application development with modern, enterprise-grade technologies. We design and
+            build scalable, maintainable systems — from clean API design through data layer to polished
+            front-end interfaces.
+          </p>
+          <ul class="sw-cap-card__list">
+            <li data-en="RESTful API &amp; backend services" data-sr="RESTful API i backend servisi">RESTful API &amp; backend services</li>
+            <li data-en="Responsive single-page applications" data-sr="Responzivne single-page aplikacije">Responsive single-page applications</li>
+            <li data-en="Database design &amp; optimisation" data-sr="Dizajn i optimizacija baza podataka">Database design &amp; optimisation</li>
+            <li data-en="Cloud deployment &amp; DevOps" data-sr="Cloud deployment i DevOps">Cloud deployment &amp; DevOps</li>
+          </ul>
+          <div class="sw-cap-card__tags">
+            <span class="sw-cap-card__tag">.NET</span>
+            <span class="sw-cap-card__tag">C#</span>
+            <span class="sw-cap-card__tag">Angular</span>
+            <span class="sw-cap-card__tag">PostgreSQL</span>
+            <span class="sw-cap-card__tag">SQL Server</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Our Products ── -->
+  <section class="sw-products">
+    <div class="container">
+      <div class="section-header" style="text-align:left; margin-bottom:0;">
+        <span class="section-label section-label--light" data-en="Our Own Products" data-sr="Naši Vlastiti Proizvodi">Our Own Products</span>
+        <h2 class="section-title section-title--light" data-en="Software we built for the world" data-sr="Softver koji smo izgradili za svet">Software we built for the world</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.55); max-width:580px;" data-en="Alongside client work, we invest in proprietary products that solve real industry problems at scale." data-sr="Pored rada za klijente, ulažemo u vlastite proizvode koji rešavaju realne industrijske probleme u velikom obimu.">
+          Alongside client work, we invest in proprietary products that solve real industry problems at scale.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tragamo — reusing product section styles from main page -->
+    <div class="product" id="tragamo" style="background: transparent; padding: 64px 0 0;">
+      <div class="product__bg" style="display:none;"></div>
+      <div class="container product__inner">
+        <div class="product__content">
+          <span class="section-label section-label--light" data-en="Flagship Product" data-sr="Vodeći Proizvod">Flagship Product</span>
+          <h2 class="section-title section-title--light">
+            <span data-en="Introducing" data-sr="Upoznajte">Introducing</span> <span class="text-red">Tragamo</span>
+          </h2>
+          <p class="product__sub" data-en="Tragamo is CONSEAI's custom-built travel platform that redefines trip planning for the modern explorer. Powered by AI, it curates personalised itineraries, recommends accommodations, and surfaces hidden points of interest — all within a seamless mobile-first experience." data-sr="Tragamo je prilagođena platforma za putovanja CONSEAI-ja koja redefinuje planiranje putovanja za modernog istraživača. Pokretana AI-jem, kreira personalizovane itinerere, preporučuje smeštaj i otkriva skrivene tačke interesa — sve u besprekornon mobilnom iskustvu.">
+            Tragamo is CONSEAI's custom-built travel platform that redefines trip planning for the modern
+            explorer. Powered by AI, it curates personalised itineraries, recommends accommodations, and
+            surfaces hidden points of interest — all within a seamless mobile-first experience.
+          </p>
+          <div class="product__features">
+            <div class="product__feature">
+              <div class="product__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+              </div>
+              <div>
+                <strong data-en="Smart Itinerary Builder" data-sr="Pametni Graditelj Itinerera">Smart Itinerary Builder</strong>
+                <p data-en="AI-curated day-by-day plans tailored to your pace and interests." data-sr="AI-kurirani planovi dan za danom prilagođeni vašem tempu i interesovanjima.">AI-curated day-by-day plans tailored to your pace and interests.</p>
+              </div>
+            </div>
+            <div class="product__feature">
+              <div class="product__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor"/></svg>
+              </div>
+              <div>
+                <strong data-en="Accommodation Discovery" data-sr="Otkrivanje Smeštaja">Accommodation Discovery</strong>
+                <p data-en="Curated stays across regions, ranked by fit, price and proximity." data-sr="Odabrani smeštaji po regionima, rangirani po podudarnosti, ceni i blizini.">Curated stays across regions, ranked by fit, price and proximity.</p>
+              </div>
+            </div>
+            <div class="product__feature">
+              <div class="product__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <strong data-en="Points of Interest" data-sr="Tačke od Interesa">Points of Interest</strong>
+                <p data-en="Surface authentic local experiences beyond mainstream tourist traps." data-sr="Otkrijte autentična lokalna iskustva izvan uobičajenih turističkih zamki.">Surface authentic local experiences beyond mainstream tourist traps.</p>
+              </div>
+            </div>
+            <div class="product__feature">
+              <div class="product__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <strong data-en="Mobile-First Design" data-sr="Mobilni Dizajn">Mobile-First Design</strong>
+                <p data-en="Built for real travellers on the move — iOS &amp; Android native apps." data-sr="Izgrađeno za prave putnike u pokretu — iOS i Android nativne aplikacije.">Built for real travellers on the move — iOS &amp; Android native apps.</p>
+              </div>
+            </div>
+          </div>
+          <div class="product__actions">
+            <a href="index.html#contact" class="btn btn--red btn--lg" data-en="Request Early Access" data-sr="Zatražite Rani Pristup">Request Early Access</a>
+            <a href="index.html#contact" class="btn btn--ghost-light btn--lg" data-en="Partner With Us" data-sr="Postanite Partner">Partner With Us</a>
+          </div>
+        </div>
+
+        <!-- Desktop app mockup (same as main page) -->
+        <div class="product__visual">
+          <div class="app-mockup">
+            <div class="app-mockup__bar">
+              <div class="app-mockup__dots"><span></span><span></span><span></span></div>
+              <div class="app-mockup__url">tragamo.com</div>
+            </div>
+            <div class="app-nav">
+              <div class="app-nav__links">
+                <span class="app-nav__link app-nav__link--active" data-en="Accommodation" data-sr="Smeštaj">Accommodation</span>
+                <span class="app-nav__link">🗺️ <span data-en="My Trip" data-sr="Moje Putovanje">My Trip</span></span>
+              </div>
+              <div class="app-nav__brand">Tragamo</div>
+              <div class="app-nav__right">
+                <span>🇷🇸</span>
+                <span class="app-nav__sep">|</span>
+                <span>🇬🇧 EN</span>
+                <span class="app-nav__user">Boris J.</span>
+              </div>
+            </div>
+            <div class="app-categories">
+              <div class="app-cat-label" data-en="Travel by holiday type" data-sr="Putuj po tipu odmora">Travel by holiday type</div>
+              <div class="app-cat-scroll">
+                <div class="app-cat-card"><span class="app-cat-icon">🏡</span><strong data-en="Ethno Villages" data-sr="Etno Sela">Ethno Villages</strong><span data-en="Authentic Serbia" data-sr="Autentična Srbija">Authentic Serbia</span></div>
+                <div class="app-cat-card"><span class="app-cat-icon">🌲</span><strong data-en="Nature Cottages" data-sr="Kuće u Prirodi">Nature Cottages</strong><span data-en="Escape the city" data-sr="Pobeg iz grada">Escape the city</span></div>
+                <div class="app-cat-card"><span class="app-cat-icon">⛰️</span><strong data-en="Mountain Hotels" data-sr="Planinski Hoteli">Mountain Hotels</strong><span data-en="Winter &amp; summer" data-sr="Zima i leto">Winter &amp; summer</span></div>
+                <div class="app-cat-card"><span class="app-cat-icon">🏞️</span><strong data-en="Lakes" data-sr="Jezera">Lakes</strong><span data-en="Peaceful stays" data-sr="Mirni odmor">Peaceful stays</span></div>
+                <div class="app-cat-card"><span class="app-cat-icon">🍷</span><strong data-en="Wine &amp; Stay" data-sr="Vinski Smeštaj">Wine &amp; Stay</strong><span data-en="Vineyard routes" data-sr="Vinarske rute">Vineyard routes</span></div>
+              </div>
+            </div>
+            <div class="app-hero">
+              <div class="app-hero__overlay">
+                <div class="app-hero__label" data-en="DISCOVER SERBIA" data-sr="OTKRIJTE SRBIJU">DISCOVER SERBIA</div>
+                <div class="app-hero__title" data-en="STAY &amp; EXPLORE" data-sr="ODSEDNI I ISTRAŽI">STAY &amp; EXPLORE</div>
+                <div class="app-hero__sub" data-en="Real Serbian stays connected to culture, food and surrounding nature." data-sr="Pravi srpski smeštaj, povezan sa kulturom, hranom i prirodom u okolini.">Real Serbian stays connected to culture, food and surrounding nature.</div>
+                <div class="app-search">
+                  <div class="app-search__tab" data-en="Activity" data-sr="Aktivnost">Activity</div>
+                  <div class="app-search__row">
+                    <input class="app-search__input" readonly data-ph-en="What do you want to try?" data-ph-sr="Šta želiš da probaš?" placeholder="What do you want to try?" />
+                    <div class="app-search__field"><label data-en="Check-in" data-sr="Dolazak">Check-in</label><span>08/09/2026</span></div>
+                    <div class="app-search__field"><label data-en="Check-out" data-sr="Odlazak">Check-out</label><span>08/16/2026</span></div>
+                    <div class="app-search__field"><label data-en="Guests" data-sr="Gosti">Guests</label><span>2</span></div>
+                    <button class="app-search__btn" data-en="Show stays" data-sr="Prikaži smeštaj">Show stays</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="app-pills">
+              <span class="app-pill" data-en="Nature" data-sr="Priroda">Nature</span>
+              <span class="app-pill" data-en="Culture" data-sr="Kultura">Culture</span>
+              <span class="app-pill app-pill--active" data-en="Gastronomy" data-sr="Gastronomija">Gastronomy</span>
+              <span class="app-pill" data-en="Adventure" data-sr="Avantura">Adventure</span>
+              <span class="app-pill" data-en="Spa &amp; Wellness" data-sr="Banje i Spa">Spa &amp; Wellness</span>
+            </div>
+            <div class="app-bottom">
+              <div class="app-listing">
+                <div class="app-listing__card">
+                  <div class="app-listing__thumb app-listing__thumb--1"></div>
+                  <div class="app-listing__info">
+                    <div class="app-listing__name" data-en="Ethno Village Sirogojno" data-sr="Etno Selo Sirogojno">Ethno Village Sirogojno</div>
+                    <div class="app-listing__type" data-en="Ethno Village · 6 guests" data-sr="Ethno Selo · 6 osoba">Ethno Village · 6 guests</div>
+                    <div class="app-listing__price"><span class="app-listing__price-val">EUR 75</span> <span data-en="/ night" data-sr="/ noć">/ night</span> <span class="app-listing__avail" data-en="Available" data-sr="Dostupno">Available</span></div>
+                  </div>
+                </div>
+                <div class="app-listing__card">
+                  <div class="app-listing__thumb app-listing__thumb--2"></div>
+                  <div class="app-listing__info">
+                    <div class="app-listing__name" data-en="Zlatibor Mountain Lodge" data-sr="Zlatibor Planinska Kuća">Zlatibor Mountain Lodge</div>
+                    <div class="app-listing__type" data-en="Mountain Hotel · 4 guests" data-sr="Planinski Hotel · 4 osobe">Mountain Hotel · 4 guests</div>
+                    <div class="app-listing__price"><span class="app-listing__price-val">EUR 60</span> <span data-en="/ night" data-sr="/ noć">/ night</span> <span class="app-listing__avail" data-en="Available" data-sr="Dostupno">Available</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="app-map">
+                <div class="app-map__grid"></div>
+                <div class="app-map__pin app-map__pin--1"><div class="app-map__pin-dot"></div><div class="app-map__pin-label">EUR 75</div></div>
+                <div class="app-map__pin app-map__pin--2"><div class="app-map__pin-dot app-map__pin-dot--blue"></div><div class="app-map__pin-label">EUR 60</div></div>
+                <div class="app-map__pin app-map__pin--3"><div class="app-map__pin-dot"></div><div class="app-map__pin-label">EUR 90</div></div>
+                <div class="app-map__controls"><button>+</button><button>−</button></div>
+                <div class="app-map__tabs">
+                  <span class="app-map__tab app-map__tab--active" data-en="Trip" data-sr="Putovanje">Trip</span>
+                  <span class="app-map__tab" data-en="Itinerary" data-sr="Itinerer">Itinerary</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Motorium -->
+    <div class="container">
+      <div class="motorium-card">
+        <div class="motorium-card__icon">🚗</div>
+        <div class="motorium-card__body">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+            <h3 class="motorium-card__title">Motorium</h3>
+            <span class="motorium-card__badge" data-en="In Development" data-sr="U Razvoju">In Development</span>
+          </div>
+          <p class="motorium-card__sub" data-en="Motorium is an upcoming ecosystem that connects car ownership to crypto token mechanics — enabling vehicle history, ownership and value to be represented on-chain. Designed for the modern automotive enthusiast and investor." data-sr="Motorium je nadolazeći ekosistem koji povezuje vlasništvo automobila sa kripto token mehanizmima — omogućavajući da istorija vozila, vlasništvo i vrednost budu predstavljeni on-chain. Dizajniran za modernog automobilskog entuzijasta i investitora.">
+            Motorium is an upcoming ecosystem that connects car ownership to crypto token mechanics —
+            enabling vehicle history, ownership and value to be represented on-chain. Designed for the
+            modern automotive enthusiast and investor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ── -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg"><div class="cta-banner__glow"></div></div>
+    <div class="container cta-banner__inner">
+      <h2 class="cta-banner__title" data-en="Have a software project in mind?" data-sr="Imate softverski projekat na umu?">Have a software project in mind?</h2>
+      <p class="cta-banner__sub" data-en="Whether it's a bespoke enterprise system or a product idea from scratch — let's talk about what we can build together." data-sr="Bilo da je u pitanju prilagođeni enterprise sistem ili ideja za proizvod od nule — razgovarajmo o tome šta možemo izgraditi zajedno.">
+        Whether it's a bespoke enterprise system or a product idea from scratch — let's talk about
+        what we can build together.
+      </p>
+      <a href="index.html#contact" class="btn btn--white btn--lg" data-en="Start the Conversation" data-sr="Počnite Razgovor">Start the Conversation</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo">
+          <span class="nav__logo-name"><span class="nav__logo-mark">C</span>ONSEAI</span>
+          <span class="nav__logo-sub" data-en="Consulting &amp; Smart Engineering with AI" data-sr="Savetovanje i Pametno Inženjerstvo sa AI">Consulting &amp; Smart Engineering with AI</span>
+        </a>
+        <p class="footer__copy" data-en="© 2026 CONSEAI. All rights reserved." data-sr="© 2026 CONSEAI. Sva prava zadržana.">© 2026 CONSEAI. All rights reserved.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h5 data-en="Services" data-sr="Usluge">Services</h5>
+          <a href="index.html#services" data-en="Process Consulting" data-sr="Procesno Savetovanje">Process Consulting</a>
+          <a href="index.html#services" data-en="AI Automation" data-sr="AI Automatizacija">AI Automation</a>
+          <a href="custom-software.html" data-en="Custom Products" data-sr="Prilagođeni Proizvodi">Custom Products</a>
+          <a href="industrial.html" data-en="Industrial Automation" data-sr="Industrijska Automatizacija">Industrial Automation</a>
+        </div>
+        <div class="footer__col">
+          <h5 data-en="Company" data-sr="Kompanija">Company</h5>
+          <a href="index.html#team" data-en="Team" data-sr="Tim">Team</a>
+          <a href="index.html#about" data-en="About Us" data-sr="O Nama">About Us</a>
+          <a href="index.html#contact" data-en="Contact" data-sr="Kontakt">Contact</a>
+          <a href="custom-software.html#tragamo">Tragamo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

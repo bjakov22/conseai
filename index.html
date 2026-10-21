@@ -19,7 +19,18 @@
         <span class="nav__logo-sub" data-en="Consulting and Smart Engineering with AI" data-sr="Savetovanje i Pametno Inženjerstvo sa AI">Consulting and Smart Engineering with AI</span>
       </a>
       <ul class="nav__links" id="navLinks">
-        <li><a href="#services" data-en="Services" data-sr="Usluge">Services</a></li>
+        <li>
+          <a href="#services" class="nav__dropdown-trigger" data-en="Services" data-sr="Usluge">
+            Services <span class="nav__dropdown-arrow" aria-hidden="true">▾</span>
+          </a>
+          <div class="nav__dropdown">
+            <a href="process-consulting.html" class="nav__dropdown-item" data-en="Process Consulting" data-sr="Procesno Savetovanje"><span class="nav__dropdown-num">01</span> Process Consulting</a>
+            <a href="#services" class="nav__dropdown-item" data-en="AI Automation" data-sr="AI Automatizacija"><span class="nav__dropdown-num">02</span> AI Automation</a>
+            <a href="custom-software.html" class="nav__dropdown-item" data-en="Custom Software &amp; Products" data-sr="Prilagođeni Softver i Proizvodi"><span class="nav__dropdown-num">03</span> Custom Software &amp; Products</a>
+            <div class="nav__dropdown-sep"></div>
+            <a href="industrial.html" class="nav__dropdown-item nav__dropdown-item--highlight" data-en="Industrial Automation &amp; Electrical Eng." data-sr="Industrijska Automatizacija i Elektrotehnika"><span class="nav__dropdown-num">04</span> Industrial Automation &amp; Electrical Eng.</a>
+          </div>
+        </li>
         <li><a href="#product" data-en="Product" data-sr="Proizvod">Product</a></li>
         <li><a href="#team" data-en="Team" data-sr="Tim">Team</a></li>
         <li><a href="#about" data-en="About" data-sr="O nama">About</a></li>
@@ -145,7 +156,7 @@
             <li data-en="KPI frameworks &amp; dashboards" data-sr="KPI okviri i kontrolne table">KPI frameworks &amp; dashboards</li>
             <li data-en="Change management coaching" data-sr="Koučing za upravljanje promenama">Change management coaching</li>
           </ul>
-          <a href="#contact" class="service-card__link" data-en="Learn more →" data-sr="Saznajte više →">Learn more →</a>
+          <a href="process-consulting.html" class="service-card__link" data-en="Learn more →" data-sr="Saznajte više →">Learn more →</a>
         </div>
 
         <div class="service-card">
@@ -219,7 +230,7 @@
               <li data-en="Scalable cloud architecture" data-sr="Skalabilna cloud arhitektura">Scalable cloud architecture</li>
             </ul>
           </div>
-          <a href="#product" class="service-card__link" data-en="See our products →" data-sr="Pogledajte naše proizvode →">See our products →</a>
+          <a href="custom-software.html" class="service-card__link" data-en="See our products →" data-sr="Pogledajte naše proizvode →">See our products →</a>
         </div>
 
         <div class="service-card service-card--industrial">
@@ -247,113 +258,9 @@
             <li data-en="SCADA system design &amp; integration" data-sr="Projektovanje i integracija SCADA sistema">SCADA system design &amp; integration</li>
             <li data-en="Water &amp; wastewater treatment plants" data-sr="Postrojenja za prečišćavanje vode i otpadnih voda">Water &amp; wastewater treatment plants</li>
           </ul>
-          <a href="#industrial" class="service-card__link" data-en="Learn more →" data-sr="Saznajte više →">Learn more →</a>
+          <a href="industrial.html" class="service-card__link" data-en="Learn more →" data-sr="Saznajte više →">Learn more →</a>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Industrial Engineering Section ── -->
-  <section class="industrial" id="industrial">
-    <div class="industrial__bg">
-      <div class="industrial__glow"></div>
-      <div class="industrial__grid"></div>
-    </div>
-    <div class="container industrial__inner">
-      <div class="section-header" style="text-align:left; margin-bottom:48px;">
-        <span class="section-label section-label--light" data-en="Industrial Expertise" data-sr="Industrijska Ekspertiza">Industrial Expertise</span>
-        <h2 class="section-title section-title--light" data-en="Engineering for critical infrastructure" data-sr="Inženjerstvo za kritičnu infrastrukturu">Engineering for critical<br/>infrastructure</h2>
-        <p class="section-sub" style="color:rgba(255,255,255,.6);" data-en="We design and integrate electrical and automation systems for facilities where reliability is not optional — water treatment plants, small power stations, and chemical production environments." data-sr="Projektujemo i integrišemo električne i automatizacijske sisteme za postrojenja gde pouzdanost nije opcija — postrojenja za prečišćavanje vode, male elektrane i hemijsku industriju.">
-          We design and integrate electrical and automation systems for facilities where reliability is not optional
-          — water treatment plants, small power stations, and chemical production environments.
-        </p>
-      </div>
-
-      <div class="industrial__layout">
-        <!-- Capabilities column -->
-        <div class="industrial__capabilities">
-          <div class="industrial__cap-group">
-            <div class="industrial__cap-title" data-en="Electrical Systems" data-sr="Električni Sistemi">Electrical Systems</div>
-            <div class="industrial__cap-items">
-              <div class="industrial__cap-item">
-                <div class="industrial__cap-icon">
-                  <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
-                <div>
-                  <strong data-en="Control Panels" data-sr="Upravljačke Table">Control Panels</strong>
-                  <p data-en="Custom MCC, LV and MV panels designed to IEC standards." data-sr="Prilagođene MCC, NN i SN table projektovane po IEC standardima.">Custom MCC, LV and MV panels designed to IEC standards.</p>
-                </div>
-              </div>
-              <div class="industrial__cap-item">
-                <div class="industrial__cap-icon">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-                </div>
-                <div>
-                  <strong data-en="Switchgear &amp; Power Distribution" data-sr="Rasklopna Oprema i Distribucija Energije">Switchgear &amp; Power Distribution</strong>
-                  <p data-en="Single-line diagram design, busbar systems and protection coordination." data-sr="Projektovanje jednopolnih shema, sabirničkih sistema i koordinacije zaštite.">Single-line diagram design, busbar systems and protection coordination.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="industrial__cap-group">
-            <div class="industrial__cap-title" data-en="Automation &amp; Control" data-sr="Automatizacija i Upravljanje">Automation &amp; Control</div>
-            <div class="industrial__cap-items">
-              <div class="industrial__cap-item">
-                <div class="industrial__cap-icon">
-                  <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 11h2v2H6zM10 11h2v2h-2zM14 11h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
-                <div>
-                  <strong data-en="PLC Programming" data-sr="PLC Programiranje">PLC Programming</strong>
-                  <p data-en="Siemens S7/TIA Portal, Allen-Bradley Studio 5000, IEC 61131-3 structured code." data-sr="Siemens S7/TIA Portal, Allen-Bradley Studio 5000, IEC 61131-3 strukturirani kod.">Siemens S7/TIA Portal, Allen-Bradley Studio 5000, IEC 61131-3 structured code.</p>
-                </div>
-              </div>
-              <div class="industrial__cap-item">
-                <div class="industrial__cap-icon">
-                  <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="2"/></svg>
-                </div>
-                <div>
-                  <strong data-en="SCADA System Design" data-sr="Projektovanje SCADA Sistema">SCADA System Design</strong>
-                  <p data-en="Wonderware, Ignition, and WinCC-based supervisory systems with historian and alarming." data-sr="Nadzorni sistemi bazirani na Wonderware, Ignition i WinCC sa historizatorom i alarmiranjem.">Wonderware, Ignition, and WinCC-based supervisory systems with historian and alarming.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Industries column -->
-        <div class="industrial__industries">
-          <div class="industrial__industries-label" data-en="Industries we serve" data-sr="Industrije kojima služimo">Industries we serve</div>
-          <div class="industrial__industry-cards">
-            <div class="industrial__ind-card">
-              <div class="industrial__ind-icon">💧</div>
-              <div>
-                <strong data-en="Water &amp; Wastewater Treatment" data-sr="Prečišćavanje Vode i Otpadnih Voda">Water &amp; Wastewater Treatment</strong>
-                <p data-en="Pumping stations, filtration control, dosing systems and telemetry for municipal and industrial water facilities." data-sr="Pumpne stanice, upravljanje filtracijom, sistemi doziranja i telemetrija za komunalna i industrijska vodna postrojenja.">Pumping stations, filtration control, dosing systems and telemetry for municipal and industrial water facilities.</p>
-              </div>
-            </div>
-            <div class="industrial__ind-card">
-              <div class="industrial__ind-icon">⚡</div>
-              <div>
-                <strong data-en="Small Electrical Power Plants" data-sr="Male Elektrane">Small Electrical Power Plants</strong>
-                <p data-en="Generator control, synchronisation panels, protection relays and grid-tie automation for small hydro, solar and CHP plants." data-sr="Upravljanje generatorima, sinhronizacioni paneli, zaštitni releji i automatizacija priključenja na mrežu za male hidro, solarne i kogeneracijske elektrane.">Generator control, synchronisation panels, protection relays and grid-tie automation for small hydro, solar and CHP plants.</p>
-              </div>
-            </div>
-            <div class="industrial__ind-card">
-              <div class="industrial__ind-icon">🧪</div>
-              <div>
-                <strong data-en="Chemical Production Plants" data-sr="Postrojenja Hemijske Industrije">Chemical Production Plants</strong>
-                <p data-en="Batch and continuous process automation, safety interlock systems (SIL), and hazardous-area electrical design." data-sr="Šaržna i kontinualna automatizacija procesa, sigurnosni blokadni sistemi (SIL) i električni projekti za eksplozivne zone.">Batch and continuous process automation, safety interlock systems (SIL), and hazardous-area electrical design.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="industrial__cta">
-        <a href="#contact" class="btn btn--red btn--lg" data-en="Discuss Your Project" data-sr="Razgovarajmo o Projektu">Discuss Your Project</a>
-        <a href="#contact" class="btn btn--ghost-light btn--lg" data-en="Request Engineering Consultation" data-sr="Zatražite Inženjerski Konsalting">Request Engineering Consultation</a>
       </div>
     </div>
   </section>
@@ -868,7 +775,7 @@
       <div class="footer__links">
         <div class="footer__col">
           <h5 data-en="Services" data-sr="Usluge">Services</h5>
-          <a href="#services" data-en="Process Consulting" data-sr="Procesno Savetovanje">Process Consulting</a>
+          <a href="process-consulting.html" data-en="Process Consulting" data-sr="Procesno Savetovanje">Process Consulting</a>
           <a href="#services" data-en="AI Automation" data-sr="AI Automatizacija">AI Automation</a>
           <a href="#services" data-en="Custom Products" data-sr="Prilagođeni Proizvodi">Custom Products</a>
         </div>
@@ -877,7 +784,7 @@
           <a href="#team" data-en="Team" data-sr="Tim">Team</a>
           <a href="#about" data-en="About Us" data-sr="O Nama">About Us</a>
           <a href="#contact" data-en="Contact" data-sr="Kontakt">Contact</a>
-          <a href="#product">Tragamo</a>
+          <a href="custom-software.html#tragamo">Tragamo</a>
         </div>
       </div>
     </div>
